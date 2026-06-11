@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Miles LeBlanc — Private Equity &amp; Strategy</title>
+<meta name="description" content="Portfolio of Miles LeBlanc: private equity analyst, WashU Olin MBA candidate, Toigo LIFE Fellow, and former NCAA Division I football athlete.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23151B2E'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-weight='800' font-size='26' fill='%23C77B45' text-anchor='middle'%3EML%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Spline+Sans+Mono:wght@300..700&display=swap" rel="stylesheet">
+<style>
+  /* ============ Tokens ============
+     Indigo night  — Indigo Partners, his PE firm
+     Chalk         — field markings
+     Copper        — Arizona, Copper Sky Capital
+  ================================== */
+  :root{
+    --bg:          #151B2E;
+    --bg-raise:    #1A2340;
+    --card:        #18203A;
+    --line:        rgba(231,236,245,.13);
+    --line-strong: rgba(231,236,245,.30);
+    --chalk:       #ECEFF5;
+    --body:        #C7CFDF;
+    --muted:       #97A2BC;
+    --copper:      #C77B45;
+    --copper-hi:   #E0925A;
+    --display: "Archivo", "Arial Narrow", sans-serif;
+    --serif:   "Newsreader", Georgia, serif;
+    --mono:    "Spline Sans Mono", "SFMono-Regular", Consolas, monospace;
+    --wrap: 1080px;
+    --pad: clamp(20px, 5vw, 48px);
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-padding-top:92px; }
+  @media (prefers-reduced-motion: no-preference){
+    html{ scroll-behavior:smooth; }
+  }
+  body{
+    background:var(--bg);
+    color:var(--body);
+    font-family:var(--serif);
+    font-size:1.0625rem;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background:var(--copper); color:var(--bg); }
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; }
+  :focus-visible{ outline:2px solid var(--copper-hi); outline-offset:3px; }
+
+  .wrap{ max-width:var(--wrap); margin-inline:auto; padding-inline:var(--pad); }
+
+  .skip{
+    position:absolute; left:16px; top:-60px; z-index:100;
+    background:var(--copper); color:var(--bg);
+    font-family:var(--mono); font-size:.8rem; text-transform:uppercase;
+    padding:10px 16px; text-decoration:none; transition:top .2s;
+  }
+  .skip:focus{ top:16px; }
+
+  /* ============ Nav ============ */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(21,27,46,.82);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    height:68px;
+  }
+  .mark{
+    font-family:var(--display); font-weight:800; font-stretch:120%;
+    font-size:1.15rem; letter-spacing:.04em;
+    color:var(--chalk); text-decoration:none;
+  }
+  .mark span{ color:var(--copper); }
+  .nav-links{ display:flex; gap:30px; list-style:none; }
+  .nav-links a{
+    font-family:var(--mono); font-size:.74rem; letter-spacing:.12em;
+    text-transform:uppercase; text-decoration:none; color:var(--muted);
+    padding:6px 0; border-bottom:1px solid transparent;
+    transition:color .2s, border-color .2s;
+  }
+  .nav-links a:hover{ color:var(--chalk); }
+  .nav-links a[aria-current="true"]{ color:var(--copper-hi); border-color:var(--copper-hi); }
+  .btn{
+    display:inline-block; font-family:var(--mono); font-size:.74rem;
+    letter-spacing:.12em; text-transform:uppercase; text-decoration:none;
+    padding:11px 18px; border:1px solid var(--line-strong); color:var(--chalk);
+    transition:border-color .2s, color .2s, background .2s;
+  }
+  .btn:hover{ border-color:var(--copper); color:var(--copper-hi); }
+  .btn-solid{ background:var(--copper); border-color:var(--copper); color:var(--bg); font-weight:600; }
+  .btn-solid:hover{ background:var(--copper-hi); border-color:var(--copper-hi); color:var(--bg); }
+
+  /* ============ Hero ============ */
+  .hero{
+    position:relative;
+    padding:clamp(84px, 13vh, 150px) 0 clamp(64px, 9vh, 110px);
+    overflow:hidden;
+  }
+  /* faint yard lines across the field */
+  .hero::before{
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background:repeating-linear-gradient(to bottom, transparent 0 119px, var(--line) 119px 120px);
+    -webkit-mask-image:linear-gradient(to bottom, transparent, #000 25%, #000 78%, transparent);
+            mask-image:linear-gradient(to bottom, transparent, #000 25%, #000 78%, transparent);
+    opacity:.55;
+  }
+  .hero .wrap{ position:relative; }
+  .eyebrow{
+    font-family:var(--mono); font-size:.72rem; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--copper);
+  }
+  .hero-name{
+    font-family:var(--display); font-weight:800; font-stretch:122%;
+    font-size:clamp(3.1rem, 12.5vw, 8.4rem);
+    line-height:.94; letter-spacing:-.015em; text-transform:uppercase;
+    color:var(--chalk); margin-top:22px;
+  }
+  .hero-name .stencil{ color:var(--chalk); }
+  @supports ((-webkit-text-stroke:2px #fff) or (text-stroke:2px #fff)){
+    .hero-name .stencil{
+      color:transparent;
+      -webkit-text-stroke:2px var(--chalk);
+    }
+  }
+  .hero-thesis{
+    max-width:34em; margin-top:30px;
+    font-family:var(--serif); font-style:italic; font-weight:400;
+    font-size:clamp(1.18rem, 2.4vw, 1.5rem); line-height:1.55;
+    color:var(--body);
+  }
+  .hero-thesis strong{ color:var(--chalk); font-weight:500; }
+  .hero-meta{
+    display:flex; flex-wrap:wrap; gap:14px 0; margin-top:44px;
+    list-style:none;
+  }
+  .hero-meta li{
+    font-family:var(--mono); font-size:.72rem; letter-spacing:.13em;
+    text-transform:uppercase; color:var(--muted);
+    padding:2px 22px; border-left:1px solid var(--line-strong);
+  }
+  .hero-meta li:first-child{ padding-left:0; border-left:0; }
+  .scroll-cue{
+    margin-top:64px; font-family:var(--mono); font-size:.68rem;
+    letter-spacing:.18em; text-transform:uppercase; color:var(--muted);
+  }
+
+  /* ============ Sections ============ */
+  .section{ padding:clamp(76px, 10vw, 124px) 0; border-top:1px solid var(--line); }
+  .section-head h2{
+    font-family:var(--display); font-weight:800; font-stretch:118%;
+    font-size:clamp(1.9rem, 4.6vw, 3rem); text-transform:uppercase;
+    letter-spacing:-.01em; color:var(--chalk); margin-top:14px;
+  }
+  .section-intro{
+    margin-top:16px; max-width:36em; color:var(--muted);
+    font-style:italic;
+  }
+
+  /* ============ About ============ */
+  .about-grid{
+    display:grid; grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);
+    gap:clamp(36px, 6vw, 84px); margin-top:48px; align-items:start;
+  }
+  .lede{
+    font-size:clamp(1.3rem, 2.6vw, 1.7rem); line-height:1.5;
+    color:var(--chalk); font-weight:400;
+  }
+  .about-copy p + p{ margin-top:1.2em; }
+  .about-copy .lede{ margin-bottom:1.3em; }
+  .facts{
+    border:1px solid var(--line); padding:6px 28px;
+    background:linear-gradient(180deg, var(--bg-raise), transparent 140%);
+  }
+  .facts > div{ padding:18px 0; border-top:1px solid var(--line); }
+  .facts > div:first-child{ border-top:0; }
+  .facts dt{
+    font-family:var(--mono); font-size:.66rem; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--copper); margin-bottom:7px;
+  }
+  .facts dd{ color:var(--chalk); font-size:1rem; line-height:1.55; }
+
+  /* ============ Journey timeline ============ */
+  .timeline{ position:relative; margin-top:60px; }
+  /* the chalk sideline */
+  .timeline::before{
+    content:""; position:absolute; left:132px; top:6px; bottom:6px;
+    width:2px; background:var(--line-strong);
+  }
+  /* hash marks every few yards */
+  .timeline::after{
+    content:""; position:absolute; left:125px; top:6px; bottom:6px;
+    width:16px;
+    background:repeating-linear-gradient(to bottom, var(--line) 0 1px, transparent 1px 46px);
+  }
+  .step{
+    position:relative; display:grid;
+    grid-template-columns:96px minmax(0,1fr);
+    column-gap:74px; padding:32px 0 36px;
+  }
+  .step::before{
+    content:""; position:absolute; left:133px; top:43px; z-index:1;
+    width:11px; height:11px;
+    transform:translateX(-50%) rotate(45deg);
+    background:var(--bg); border:2px solid var(--chalk);
+  }
+  .step.now::before{
+    background:var(--copper); border-color:var(--copper);
+    box-shadow:0 0 0 6px rgba(199,123,69,.16);
+  }
+  .step-when{ text-align:right; padding-top:4px; }
+  .year{
+    display:block; font-family:var(--display); font-weight:800;
+    font-stretch:120%; font-size:1.7rem; line-height:1; color:var(--chalk);
+  }
+  .step.now .year{ color:var(--copper-hi); }
+  .when-sub{
+    display:block; margin-top:9px; font-family:var(--mono);
+    font-size:.68rem; line-height:1.6; letter-spacing:.04em; color:var(--muted);
+  }
+  .step-body h3{
+    font-family:var(--display); font-weight:700; font-stretch:110%;
+    font-size:clamp(1.2rem, 2.2vw, 1.45rem); color:var(--chalk);
+    letter-spacing:.005em;
+  }
+  .org{
+    margin-top:8px; font-family:var(--mono); font-size:.73rem;
+    letter-spacing:.11em; text-transform:uppercase; color:var(--muted);
+  }
+  .desc{ margin-top:14px; max-width:36em; }
+
+  /* ============ Education ============ */
+  .edu-grid{
+    display:grid; grid-template-columns:1fr 1fr;
+    gap:clamp(20px, 3vw, 32px); margin-top:48px;
+  }
+  .edu-card{
+    border:1px solid var(--line); padding:clamp(26px, 4vw, 38px);
+    background:var(--card);
+    transition:border-color .25s;
+  }
+  .edu-card:hover{ border-color:var(--line-strong); }
+  .edu-eyebrow{
+    font-family:var(--mono); font-size:.66rem; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--copper);
+  }
+  .edu-card h3{
+    margin-top:16px; font-family:var(--display); font-weight:800;
+    font-stretch:114%; font-size:clamp(1.3rem, 2.4vw, 1.6rem);
+    line-height:1.15; color:var(--chalk);
+  }
+  .edu-school{
+    margin-top:5px; font-family:var(--mono); font-size:.73rem;
+    letter-spacing:.1em; text-transform:uppercase; color:var(--muted);
+  }
+  .edu-degree{
+    margin-top:18px; font-style:italic; font-size:1.12rem; color:var(--chalk);
+  }
+  .edu-dates{
+    margin-top:6px; font-family:var(--mono); font-size:.7rem;
+    letter-spacing:.06em; color:var(--muted);
+  }
+  .edu-list{ list-style:none; margin-top:22px; }
+  .edu-list li{
+    padding:11px 0; border-top:1px solid var(--line);
+    font-size:.98rem; color:var(--body);
+  }
+  .credential{
+    margin-top:clamp(20px, 3vw, 32px);
+    border:1px solid var(--line); padding:20px 28px;
+    display:flex; flex-wrap:wrap; gap:8px 24px;
+    align-items:baseline; justify-content:space-between;
+  }
+  .credential .label{
+    font-family:var(--mono); font-size:.66rem; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--copper);
+  }
+  .credential .what{ color:var(--chalk); }
+  .credential .date{
+    font-family:var(--mono); font-size:.7rem; color:var(--muted);
+  }
+
+  /* ============ Footer / contact ============ */
+  .footer{ border-top:1px solid var(--line); padding:clamp(76px, 10vw, 120px) 0 40px; }
+  .footer h2{
+    font-family:var(--display); font-weight:800; font-stretch:118%;
+    font-size:clamp(1.9rem, 4.6vw, 3rem); text-transform:uppercase;
+    color:var(--chalk); margin-top:14px;
+  }
+  .mail{
+    display:inline-block; margin-top:26px;
+    font-family:var(--mono); font-weight:500;
+    font-size:clamp(1.1rem, 2.8vw, 1.6rem);
+    color:var(--chalk); text-decoration:none;
+    border-bottom:2px solid var(--line-strong);
+    padding-bottom:4px;
+    transition:color .2s, border-color .2s;
+  }
+  .mail:hover{ color:var(--copper-hi); border-color:var(--copper); }
+  .footer-actions{ margin-top:34px; display:flex; gap:14px; flex-wrap:wrap; }
+  .colophon{
+    margin-top:72px; padding-top:24px; border-top:1px solid var(--line);
+    display:flex; flex-wrap:wrap; gap:10px 24px; justify-content:space-between;
+    font-family:var(--mono); font-size:.68rem; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--muted);
+  }
+
+  /* ============ Reveal ============ */
+  .reveal{ opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in{ opacity:1; transform:none; }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1; transform:none; transition:none; }
+  }
+
+  /* ============ Responsive ============ */
+  @media (max-width: 880px){
+    .about-grid{ grid-template-columns:1fr; }
+    .edu-grid{ grid-template-columns:1fr; }
+  }
+  @media (max-width: 720px){
+    .timeline::before{ left:8px; }
+    .timeline::after{ left:1px; }
+    .step{ grid-template-columns:1fr; column-gap:0; padding:26px 0 30px 38px; }
+    .step::before{ left:9px; top:8px; }
+    .step-when{ text-align:left; display:flex; align-items:baseline; gap:14px; margin-bottom:10px; padding-top:0; }
+    .year{ font-size:1.25rem; }
+    .when-sub{ margin-top:0; }
+  }
+  @media (max-width: 620px){
+    .nav-links{ display:none; }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip" href="#about">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="mark" href="#top" aria-label="Miles LeBlanc — back to top">M<span>L</span></a>
+    <nav aria-label="Sections">
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#journey">Journey</a></li>
+        <li><a href="#education">Education</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-solid" href="mailto:miles.l@wustl.edu">Contact</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ Hero ============ -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Private Equity · MBA Candidate — St. Louis, MO</p>
+      <h1 class="hero-name">Miles<br><span class="stencil">LeBlanc</span></h1>
+      <p class="hero-thesis">I went from <strong>Division I football</strong> at Northern Arizona to <strong>airline private equity</strong> at Indigo Partners. Now I study finance and strategy at <strong>WashU Olin</strong>.</p>
+      <ul class="hero-meta">
+        <li>WashU Olin MBA &rsquo;27</li>
+        <li>Ex&ndash;Indigo Partners</li>
+        <li>Toigo LIFE Fellow</li>
+        <li>NCAA D1 Alum</li>
+      </ul>
+      <p class="scroll-cue">&darr; Scroll</p>
+    </div>
+  </section>
+
+  <!-- ============ About ============ -->
+  <section id="about" class="section">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="eyebrow">Who he is</p>
+        <h2>About</h2>
+      </header>
+      <div class="about-grid">
+        <div class="about-copy reveal">
+          <p class="lede">Four years of Division I football taught me how to prepare, compete, and finish. I bring the same discipline to investing.</p>
+          <p>I&rsquo;m an MBA candidate at Washington University in St. Louis, Olin Business School, where I study finance and strategy as a Toigo LIFE Fellow and Consortium scholar. Before Olin, I analyzed deals at Indigo Partners, the Phoenix private equity firm W.&nbsp;A.&nbsp;Franke founded in 2002 to invest in air transportation.</p>
+          <p>I learned business hands-on first. A three-year property management apprenticeship taught me tenant relations, budgeting, and how to fix what breaks. At Northern Arizona University, I played D1 football, served as president of the Investment Club, and researched financial markets while earning a BBA in finance and economics. Internships at Charles Schwab and Copper Sky Capital pointed me toward investing.</p>
+          <p>Outside of work, I volunteer for causes in economic empowerment and workforce development.</p>
+        </div>
+        <dl class="facts reveal">
+          <div>
+            <dt>Now</dt>
+            <dd>MBA Candidate, WashU Olin — Class of 2027</dd>
+          </div>
+          <div>
+            <dt>Previously</dt>
+            <dd>Private Equity Analyst, Indigo Partners LLC</dd>
+          </div>
+          <div>
+            <dt>Fellowships</dt>
+            <dd>Toigo LIFE Fellow · Consortium Scholar</dd>
+          </div>
+          <div>
+            <dt>Credential</dt>
+            <dd>FINRA Securities Industry Essentials (SIE)</dd>
+          </div>
+          <div>
+            <dt>Focus</dt>
+            <dd>Financial modeling · Private equity · Real estate</dd>
+          </div>
+          <div>
+            <dt>Causes</dt>
+            <dd>Economic empowerment · Workforce development</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Professional Journey ============ -->
+  <section id="journey" class="section">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="eyebrow">2019 &rarr; Today</p>
+        <h2>Professional Journey</h2>
+        <p class="section-intro">Oldest first, like a drive down the field.</p>
+      </header>
+
+      <div class="timeline">
+
+        <article class="step reveal">
+          <div class="step-when">
+            <span class="year">2019</span>
+            <span class="when-sub">Jan 2019 &ndash; Jun 2022<br>3 yrs 6 mos</span>
+          </div>
+          <div class="step-body">
+            <h3>Property Manager Apprentice</h3>
+            <p class="org">ABRI LLC · United States</p>
+            <p class="desc">My first job in business: a hands-on apprenticeship in residential rental properties. I handled tenant relations and rent collection, kept the books, managed vendors, and did the maintenance work myself.</p>
+          </div>
+        </article>
+
+        <article class="step reveal">
+          <div class="step-when">
+            <span class="year">2022</span>
+            <span class="when-sub">Jun &ndash; Aug 2022<br>Summer internship</span>
+          </div>
+          <div class="step-body">
+            <h3>Branch Consultant Intern</h3>
+            <p class="org">Charles Schwab · Phoenix, AZ</p>
+            <p class="desc">Supported advisors and branch operations at one of the largest U.S. brokerages, working in Salesforce and project management. I passed the FINRA SIE that July.</p>
+          </div>
+        </article>
+
+        <article class="step reveal">
+          <div class="step-when">
+            <span class="year">2023</span>
+            <span class="when-sub">Jan &ndash; Jun 2023<br>6 mos</span>
+          </div>
+          <div class="step-body">
+            <h3>Spring Associate</h3>
+            <p class="org">Copper Sky Capital · Internship</p>
+            <p class="desc">Venture capital internship backing growth-stage, post-revenue tech companies building Arizona&rsquo;s startup ecosystem.</p>
+          </div>
+        </article>
+
+        <article class="step reveal">
+          <div class="step-when">
+            <span class="year">2023</span>
+            <span class="when-sub">Aug 2023 &ndash; May 2024<br>10 mos</span>
+          </div>
+          <div class="step-body">
+            <h3>Financial Markets Researcher</h3>
+            <p class="org">Northern Arizona University · Flagstaff, AZ</p>
+            <p class="desc">Researched financial markets through my senior year while finishing my degree and football career. NAU featured me in its graduate spotlight series.</p>
+          </div>
+        </article>
+
+        <article class="step reveal">
+          <div class="step-when">
+            <span class="year">2024</span>
+            <span class="when-sub">Jun 2024 &ndash; Jun 2025<br>1 yr 1 mo</span>
+          </div>
+          <div class="step-body">
+            <h3>Private Equity Analyst</h3>
+            <p class="org">Indigo Partners LLC · Phoenix, AZ</p>
+            <p class="desc">Analyzed acquisitions and strategic investments in airlines and air transportation. Indigo was founded in 2002 by W.&nbsp;A.&nbsp;Franke, the namesake of NAU&rsquo;s business college.</p>
+          </div>
+        </article>
+
+        <article class="step now reveal">
+          <div class="step-when">
+            <span class="year">Now</span>
+            <span class="when-sub">Since Jun 2025</span>
+          </div>
+          <div class="step-body">
+            <h3>MBA Candidate</h3>
+            <p class="org">Olin Business School · St. Louis, MO</p>
+            <p class="desc">Studying finance and strategy as a Toigo LIFE Fellow and Consortium scholar. Active in the WashU Real Estate Club and the Toigo Real Estate Accelerator.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Education ============ -->
+  <section id="education" class="section">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="eyebrow">Olin &rsquo;27 · NAU &rsquo;24</p>
+        <h2>Education</h2>
+      </header>
+
+      <div class="edu-grid">
+        <article class="edu-card reveal">
+          <p class="edu-eyebrow">Graduate — Class of 2027</p>
+          <h3>Washington University in St. Louis</h3>
+          <p class="edu-school">Olin Business School</p>
+          <p class="edu-degree">MBA, Finance &amp; Strategy</p>
+          <p class="edu-dates">Jun 2025 &ndash; May 2027</p>
+          <ul class="edu-list">
+            <li>Toigo LIFE Fellow</li>
+            <li>Toigo Real Estate Accelerator</li>
+            <li>Consortium Scholar</li>
+            <li>WashU Real Estate Club</li>
+          </ul>
+        </article>
+
+        <article class="edu-card reveal">
+          <p class="edu-eyebrow">Undergraduate — Class of 2024</p>
+          <h3>Northern Arizona University</h3>
+          <p class="edu-school">The W. A. Franke College of Business</p>
+          <p class="edu-degree">BBA, Finance &amp; Economics</p>
+          <p class="edu-dates">2020 &ndash; 2024</p>
+          <ul class="edu-list">
+            <li>NCAA Division I Football, student-athlete</li>
+            <li>President, NAU Investment Club</li>
+            <li>Financial Markets Research</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="credential reveal">
+        <span class="label">Credential</span>
+        <span class="what">Securities Industry Essentials (SIE) — FINRA</span>
+        <span class="date">Issued Jul 2022</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ Footer ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <p class="eyebrow">St. Louis, Missouri</p>
+    <h2>Get in touch</h2>
+    <a class="mail" href="mailto:miles.l@wustl.edu">miles.l@wustl.edu</a>
+    <div class="footer-actions">
+      <a class="btn" href="https://www.linkedin.com/in/miles-leblanc/" target="_blank" rel="noopener">LinkedIn &nearr;</a>
+      <a class="btn" href="mailto:miles.l@wustl.edu">Send an email</a>
+    </div>
+    <div class="colophon">
+      <span>&copy; 2026 Miles LeBlanc</span>
+      <span>Private Equity · Finance &amp; Strategy</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var reveals = document.querySelectorAll(".reveal");
+
+    if (reduced || !("IntersectionObserver" in window)) {
+      reveals.forEach(function(el){ el.classList.add("in"); });
+    } else {
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in");
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+      reveals.forEach(function(el){ io.observe(el); });
+    }
+
+    // Highlight the section in view in the nav
+    var links = document.querySelectorAll(".nav-links a");
+    var map = {};
+    links.forEach(function(a){ map[a.getAttribute("href").slice(1)] = a; });
+    var sections = document.querySelectorAll("main section[id]");
+    if ("IntersectionObserver" in window) {
+      var navIO = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          var link = map[entry.target.id];
+          if (!link) return;
+          if (entry.isIntersecting) {
+            links.forEach(function(a){ a.removeAttribute("aria-current"); });
+            link.setAttribute("aria-current", "true");
+          }
+        });
+      }, { rootMargin: "-40% 0px -55% 0px" });
+      sections.forEach(function(s){ navIO.observe(s); });
+    }
+  })();
+</script>
+
+</body>
+</html>
